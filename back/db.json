@@ -1,0 +1,58 @@
+{
+  "passengers": [
+    {
+      "id": 1,
+      "name": "Alice Dupont",
+      "email": "alice@example.com",
+      "password": "pass123",
+      "phone": "1234567890",
+      "rideHistory": [1]
+    }
+  ],
+  "drivers": [
+    {
+      "id": 1,
+      "name": "Bob Martin",
+      "email": "bob@example.com",
+      "password": "secure456",
+      "phone": "0987654321",
+      "license": "ABC123",
+      "averageRating": 4.8,
+      "availabilityStatus": true,
+      "vehicle": 1
+    }
+  ],
+  "rides": [
+    {
+      "id": 1,
+      "pickupLocation": "10 rue A",
+      "dropoffLocation": "20 rue B",
+      "distance": 12.5,
+      "rate": 25.0,
+      "status": "InProgress",
+      "startDateTime": "2024-11-27T10:00:00",
+      "endDateTime": null,
+      "passengerId": 1,
+      "driverId": 1
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "make": "Toyota",
+      "model": "Prius",
+      "licensePlate": "XYZ-123",
+      "rate": 0.5,
+      "available": true
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "amount": 25.0,
+      "description": "Ride 1",
+      "paymentDate": "2024-11-27T10:30:00",
+      "paymentMethod": "Card"
+    }
+  ]
+}
