@@ -1,0 +1,74 @@
+<div class="container my-5" *ngIf="vehicle">
+    <!-- Header avec image du véhicule et marque-modèle -->
+    <div class="row mb-4">
+      <div class="col-md-5">
+        <img
+          [src]="vehicle.img"
+          alt=""
+          class="img-fluid rounded shadow-sm"
+        />
+      </div>
+      <div class="col-md-7">
+        <h1 class="display-4">{{ vehicle.make }} {{ vehicle.model }}</h1>
+        <p class="text-muted">
+          License Plate: {{ vehicle.licensePlate }}
+        </p>
+        <p class="lead">
+          {{ vehicle.description || 'No description available' }}
+        </p>
+        <span class="badge bg-{{ vehicle.available ? 'success' : 'danger' }}">
+          {{ vehicle.available ? "Available" : "Not available" }}
+        </span>
+      </div>
+    </div>
+  
+    <!-- Détails sur la location -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h3 class="h5">Vehicle Information</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Rate per kilometer:</strong>
+            {{ vehicle.rate | currency: "EUR" }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h3 class="h5">State and Specifications</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>License Plate:</strong> {{ vehicle.licensePlate }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+
+  
+    <!-- Section pour les étoiles de notation -->
+    <div class="row my-3">
+      <div class="col text-center">
+        <img
+          class="star"
+          *ngFor="let index of indexes"
+          [src]="numberStars() > index ? filledImageUrl : emptyImageUrl"
+          (click)="numberStars.set(index + 1)"
+          alt="star"
+          width="20"
+        />
+      </div>
+    </div>
+  
+    <!-- Bouton pour gérer le véhicule -->
+    <div class="row">
+      <div class="col text-center">
+        <button
+          class="btn btn-primary btn-lg"
+          [disabled]="!vehicle.available"
+        >
+          Manage this vehicle
+        </button>
+      </div>
+    </div>
+  </div>
+  
